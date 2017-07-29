@@ -33,8 +33,7 @@ $('.shopping-item-delete').submit(function () {
 });
 
 //check data function
-//two thoughts - 1) maybe I should use .on("click") of the button? and 
-//2) also am I using .closest right?
+//two thoughts - 1 maybe I should use .on("click") of the button? and also am I using closest right?
 $('.shopping-item-toggle').submit(function(){
 	event.preventDefault();
 	this.closest('span').toggleClass('.shopping-item__checked');
