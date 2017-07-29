@@ -25,7 +25,10 @@ $('#shopping-list-add-input').submit(function(event) {
 });
 
 //delete data function - I don't think I need to call this
+<<<<<<< HEAD
 //maybe this needs to delete data from the data file and then re-render?
+=======
+>>>>>>> 328b9449f10d6adf81d2ff1484e218ca742198ce
 $('.shopping-item-delete').submit(function () {
 	event.preventDefault();
 	this.closest('.shopping-item').hide();
@@ -39,6 +42,5 @@ $('.shopping-item-toggle').submit(function(){
 	this.closest('span').toggleClass('.shopping-item__checked');
 }
 );
-
 //
 
