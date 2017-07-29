@@ -10,21 +10,22 @@ var addItem = function(data, item) {
     data.items.push(item);
 };
 
-//display function - sounds like the return could use the .closest method
+//display function - is there a cleaner way to return the elements here?
 var renderList = function(data, element) {
     var itemsHTML = data.items.map(function(item) {
         return '<li>' + '<span class="shopping-item">' + item + '</span><div class="shopping-item-controls"><button class="shopping-item-toggle"><span class="button-label">check</span></button><button class="shopping-item-delete"><span class="button-label">delete</span></button></div></li>';
     element.html(itemsHTML);
-};
+});
 
-//captures submit data, adds it, renders it, maybe
+//captures submit data, adds it, renders it
 $('#shopping-list-add-input').submit(function(event) {
     event.preventDefault();
     addItem(data, $('.shopping-list').val());
     renderList(data, $('.shopping-list'));
 });
 
-//delete data function - do I need to call this?
+//delete data function - I don't think I need to call this
+//maybe this needs to delete data from the data file and then re-render?
 $('.shopping-item-delete').submit(function () {
 	event.preventDefault();
 	this.closest('.shopping-item').hide();
@@ -32,9 +33,13 @@ $('.shopping-item-delete').submit(function () {
 });
 
 //check data function
+//two thoughts - 1) maybe I should use .on("click") of the button? and 
+//2) also am I using .closest right?
 $('.shopping-item-toggle').submit(function(){
 	event.preventDefault();
-});
+	this.closest('span').toggleClass('.shopping-item__checked');
+}
+);
 
-//calls the delete data function and hopefully the check data function
+//
 
